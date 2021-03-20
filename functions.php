@@ -59,6 +59,7 @@ function crb_attach_theme_options()
         ->add_tab(__('Profile'), array(
             Field::make('text', 'crb_label', 'Titre de la section'),
             Field::make('textarea', 'crb_description', 'Description'),
+            Field::make('urlpicker', 'crb_profilelink', 'Lien du profil'),
         ))
         ->add_tab(__('Réseaux sociaux'), array(
             Field::make('urlpicker', 'crb_facebook', 'Facebook'),
@@ -68,12 +69,12 @@ function crb_attach_theme_options()
             Field::make('urlpicker', 'crb_email', 'Email'),
         ))
         ->add_tab(__('Mini posts'), array(
-            Field::make('association', 'crb_mini_posts', 'Choisir vos mini posts')
+            Field::make('association', 'crb_mini_posts', 'Choix des mini posts')
                 ->set_min(0)
                 ->set_max(3),
         ))
         ->add_tab(__('Liste de mini posts'), array(
-            Field::make('association', 'crb_mini_posts_list', 'Choisir votre liste de mini posts')
+            Field::make('association', 'crb_mini_posts_list', 'Choix de la liste de mini posts')
                 ->set_min(0)
                 ->set_max(5),
         ));

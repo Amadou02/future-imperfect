@@ -101,27 +101,17 @@
             $mini_posts_list = carbon_get_theme_option('crb_mini_posts_list');
             ?>
             <ul class="posts">
-            <?php foreach($mini_posts_list as $mini_posts) : ?>
-                <li>
-                    <article>
-                        <header>
-                            <h3><a href="<?php echo get_permalink($mini_posts['id']) ?>"><?php echo get_the_title($mini_posts['id']) ?></a></h3>
-                            <time class="published" datetime="<?php echo get_the_date('Y-m-d H:s',$mini_posts['id']) ?>"><?php echo get_the_date('l j F Y',$mini_posts['id']) ?></time>
-                        </header>
-                        <a href="#" class="image"><?php echo get_avatar(get_the_author_meta('ID')); ?></a>
-                    </article>
-                </li>
+                <?php foreach ($mini_posts_list as $mini_posts) : ?>
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="<?php echo get_permalink($mini_posts['id']) ?>"><?php echo get_the_title($mini_posts['id']) ?></a></h3>
+                                <time class="published" datetime="<?php echo get_the_date('Y-m-d H:s', $mini_posts['id']) ?>"><?php echo get_the_date('l j F Y', $mini_posts['id']) ?></time>
+                            </header>
+                            <a href="#" class="image"><?php echo get_avatar(get_the_author_meta('ID')); ?></a>
+                        </article>
+                    </li>
                 <?php endforeach; ?>
-               
-                <li>
-                    <article>
-                        <header>
-                            <h3><a href="single.html">Congue ullam corper lorem ipsum dolor</a></h3>
-                            <time class="published" datetime="2015-10-06">October 7, 2015</time>
-                        </header>
-                        <a href="single.html" class="image"><img src="images/pic12.jpg" alt="" /></a>
-                    </article>
-                </li>
             </ul>
         </section>
 
@@ -134,12 +124,13 @@
             $crb_description = carbon_get_theme_option('crb_description');
 
             // output the field value
+            $crb_profilelink = carbon_get_theme_option('crb_profilelink');
 
             ?>
             <h2><?php echo $crb_title ?></h2>
             <p><?php echo $crb_description ?></p>
             <ul class="actions">
-                <li><a href="#" class="button">Learn More</a></li>
+                <li><a href="<?php echo $crb_profilelink['url'] ?>" class="button"><?php echo $crb_profilelink['anchor'] ?></a></li>
             </ul>
         </section>
 
@@ -163,6 +154,5 @@
         </section>
 
     </section>
-
 </div>
 <?php get_footer(); ?>
